@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<div class="background-container" [ngClass]="{ 'dark-mode-bg': darkModeEnabled, 'light-mode': !darkModeEnabled }">
+    <div class="image-container">
+        <img src="assets/tropical1.png" class="animated-image"
+            style="--delay: 0s; --x-position: 60%; --start-rotation: 0deg; --duration: 16s; --rotation-direction: -1;">
+        <img src="assets/tropical3.png" class="animated-image"
+            style="--delay: 10s; --x-position: 49%; --start-rotation: 10deg; --duration: 14s; --rotation-direction: 1;">
+        <img src="assets/tropical2.png" class="animated-image"
+            style="--delay: 3s; --x-position: 90%; --start-rotation: 240deg; --duration: 24s; --rotation-direction: 1;">
+        <img src="assets/tropical4.png" class="animated-image"
+            style="--delay: 5s; --x-position: 77%; --start-rotation: 0deg; --duration: 30s; --rotation-direction: -1;">
+        <img src="assets/tropical5.png" class="animated-image"
+            style="--delay: 2s; --x-position: 32%; --start-rotation: 180deg; --duration: 18s; --rotation-direction: 1;">
+        <img src="assets/tropical6.png" class="animated-image"
+            style="--delay: 13s; --x-position: 9%; --start-rotation: 300deg; --duration: 17s; --rotation-direction: -1;">
+        <img src="assets/tropical2.png" class="animated-image"
+            style="--delay: 0s; --x-position: 15%; --start-rotation: 0deg; --duration: 19s; --rotation-direction: 1;">
+        <img src="assets/tropical1.png" class="animated-image"
+            style="--delay: 12s; --x-position: 44%; --start-rotation: 13deg; --duration: 25s; --rotation-direction: -1;">
+        <img src="assets/tropical3.png" class="animated-image"
+            style="--delay: 3s; --x-position: 72%; --start-rotation: 140deg; --duration: 14s; --rotation-direction: 1;">
+        <img src="assets/tropical4.png" class="animated-image"
+            style="--delay: 2s; --x-position: 36%; --start-rotation: 180deg; --duration: 13s; --rotation-direction: 1;">
+        <img src="assets/tropical5.png" class="animated-image"
+            style="--delay: 13s; --x-position: 28%; --start-rotation: 300deg; --duration: 32s; --rotation-direction: -1;">
+        <img src="assets/tropical6.png" class="animated-image"
+            style="--delay: 6s; --x-position: 12%; --start-rotation: 0deg; --duration: 20s; --rotation-direction: 1;">
+        <img src="assets/tropical1.png" class="animated-image"
+            style="--delay: 12s; --x-position: 88%; --start-rotation: 13deg; --duration: 15s; --rotation-direction: -1;">
+        <img src="assets/tropical2.png" class="animated-image"
+            style="--delay: 5s; --x-position: 52%; --start-rotation: 170deg; --duration: 21s; --rotation-direction: -1;">
+        <img src="assets/tropical6.png" class="animated-image"
+            style="--delay: 4s; --x-position: 21%; --start-rotation: 120deg; --duration: 17s; --rotation-direction: -1;">
+    </div>
+</div>
+
+<div>
+    <button class="button1" id="miperfil" (click)="navigateMiperfil()" aria-label="miperfil" data-ico="👤"
+        style="--hue: 340deg"></button>
+    <button class="button1" id="misrecetas" aria-label="misrecetas" data-ico="🍓"
+        style="--hue: 1deg"></button>
+    <button class="button1" id="homepage" (click)="navigateHomepage()" aria-label="homepage" data-ico="🏠"
+        style="--hue: 300deg"></button>
+    <button class="button1" id="darkModeToggle" [attr.aria-label]="darkModeEnabled ? 'moon' : 'sun'"
+        [attr.data-ico]="darkModeEnabled ? '🌙' : '☀️'" style="--hue: {{ darkModeEnabled ? '245' : '50' }}deg"
+        (click)="toggleDarkMode()">
+    </button>
+</div>
+
+<div class="letras sidebar">
+    <h2>Mis recetas</h2>
+    <ul>
+        <li *ngFor="let recipe of recipes" (click)="loadRecipeDetails(recipe._id)">
+            <span>{{ recipe.title }}</span>
+            <button class="delete-button" (click)="deleteRecipe(recipe._id)">x</button>
+        </li>
+    </ul>
+</div>
+
+<body class="letras main-content">
+    <p [innerHTML]="selectedRecipe?.description"></p>
+</body>
+
+<img src="assets/libreta.png" class="libreta">

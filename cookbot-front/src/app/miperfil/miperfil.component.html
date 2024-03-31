@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<div>
+    <button class="button1" id="miperfil" aria-label="miperfil" data-ico="👤"
+        style="--hue: 340deg"></button>
+    <button class="button1" id="homepage" (click)="navigateHomepage()" aria-label="homepage" data-ico="🏠" style="--hue: 300deg"></button> <button
+        class="button1" id="misrecetas" (click)="navigateMisrecetas()" aria-label="misrecetas" data-ico="🍓"
+        style="--hue: 1deg"></button>
+    <button class="button1" id="darkModeToggle" [attr.aria-label]="darkModeEnabled ? 'moon' : 'sun'"
+        [attr.data-ico]="darkModeEnabled ? '🌙' : '☀️'" style="--hue: {{ darkModeEnabled ? '245' : '50' }}deg"
+        (click)="toggleDarkMode()">
+    </button>
+</div>
+<div class="background-container" [ngClass]="{ 'dark-mode-bg': darkModeEnabled, 'light-mode': !darkModeEnabled }">
+    <div class="image-container">
+        <img src="assets/frutarosa1.png" class="animated-image"
+            style="--delay: 0s; --x-position: 60%; --start-rotation: 0deg; --duration: 16s; --rotation-direction: -1;">
+        <img src="assets/frutarosa2.png" class="animated-image"
+            style="--delay: 10s; --x-position: 49%; --start-rotation: 10deg; --duration: 14s; --rotation-direction: 1;">
+        <img src="assets/frutarosa3.png" class="animated-image"
+            style="--delay: 3s; --x-position: 90%; --start-rotation: 240deg; --duration: 24s; --rotation-direction: 1;">
+        <img src="assets/frutarosa4.png" class="animated-image"
+            style="--delay: 5s; --x-position: 77%; --start-rotation: 0deg; --duration: 30s; --rotation-direction: -1;">
+        <img src="assets/frutarosa5.png" class="animated-image"
+            style="--delay: 2s; --x-position: 32%; --start-rotation: 180deg; --duration: 18s; --rotation-direction: 1;">
+        <img src="assets/frutarosa1.png" class="animated-image"
+            style="--delay: 13s; --x-position: 9%; --start-rotation: 300deg; --duration: 17s; --rotation-direction: -1;">
+        <img src="assets/frutarosa1.png" class="animated-image"
+            style="--delay: 0s; --x-position: 15%; --start-rotation: 0deg; --duration: 19s; --rotation-direction: 1;">
+        <img src="assets/frutarosa2.png" class="animated-image"
+            style="--delay: 12s; --x-position: 44%; --start-rotation: 13deg; --duration: 25s; --rotation-direction: -1;">
+        <img src="assets/frutarosa3.png" class="animated-image"
+            style="--delay: 3s; --x-position: 72%; --start-rotation: 140deg; --duration: 14s; --rotation-direction: 1;">
+        <img src="assets/frutarosa4.png" class="animated-image"
+            style="--delay: 2s; --x-position: 36%; --start-rotation: 180deg; --duration: 13s; --rotation-direction: 1;">
+        <img src="assets/frutarosa5.png" class="animated-image"
+            style="--delay: 13s; --x-position: 28%; --start-rotation: 300deg; --duration: 32s; --rotation-direction: -1;">
+        <img src="assets/frutarosa2.png" class="animated-image"
+            style="--delay: 6s; --x-position: 12%; --start-rotation: 0deg; --duration: 20s; --rotation-direction: 1;">
+        <img src="assets/frutarosa2.png" class="animated-image"
+            style="--delay: 12s; --x-position: 88%; --start-rotation: 13deg; --duration: 15s; --rotation-direction: -1;">
+        <img src="assets/frutarosa3.png" class="animated-image"
+            style="--delay: 5s; --x-position: 52%; --start-rotation: 170deg; --duration: 21s; --rotation-direction: -1;">
+        <img src="assets/frutarosa4.png" class="animated-image"
+            style="--delay: 4s; --x-position: 21%; --start-rotation: 120deg; --duration: 17s; --rotation-direction: -1;">
+    </div>
+</div>
+
+<div class="h-screen flex justify-center rounded-2xl">
+
+    <body class="letras main-content mb-auto mt-auto rounded-2xl p-10">
+        <h1 [ngClass]="{ 'dark-mode-color': darkModeEnabled, 'light-mode': !darkModeEnabled }"> MI PERFIL</h1>
+        <h2 [ngClass]="{ 'dark-mode-color': darkModeEnabled, 'light-mode': !darkModeEnabled }" class="superior-spacing">
+            Nombre de usuario</h2>
+        <p>{{ nombreUsuario }}</p>
+        <h2 [ngClass]="{ 'dark-mode-color': darkModeEnabled, 'light-mode': !darkModeEnabled }" class="letras superior-spacing">
+            Cambiar nombre de usuario</h2>
+        <input type="text" [(ngModel)]="newUsername" placeholder="Introduce nombre...">
+        <button [ngClass]="{ 'dark-mode-color': darkModeEnabled, 'light-mode': !darkModeEnabled }"
+            class="button-custom" (click)="changeUsername()">Cambiar</button>
+
+        <h2 [ngClass]="{ 'dark-mode-color': darkModeEnabled, 'light-mode': !darkModeEnabled }" class="letras superior-spacing">
+            Documento médico</h2>
+        <p><em>En esta sección, puedes subir tu historial médico para adaptar nuestras recetas a tus necesidades.</em> </p>
+        <p><em> Recuerda que es importante consultar con un profesional de la salud antes de realizar cambios en tu dieta.</em></p>
+                <div class="my-20 eliminate-space">
+                    <input type="file" (change)="onFileSelected($event)" accept=".pdf">
+                    <button [ngClass]="{ 'dark-mode-color': darkModeEnabled, 'light-mode': !darkModeEnabled }"
+                class="button-custom border-solid border-2 border-pink-300 border--500 bg-pink-200 text-white w-36  py-2 px-4 rounded hover:bg-pink-300 hover:text-white focus:outline-none focus:bg-pink-300"
+                (click)="uploadFile()">Subir Archivo</button>
+            <div *ngIf="archivoEnviado !== null" class="mensaje">
+                <i *ngIf="archivoEnviado" class="fas fa-check-circle text-green-500"></i>
+                <i *ngIf="archivoEnviado === false" class="fas fa-times-circle text-red-500"></i>
+                {{ mensaje }}
+
+            </div>
+
+        </div>
+
+        <div class="mt-24">
+            <button 
+                class="border-solid border-2 w-52 border-red-500 text-white bg-red-500 py-2 px-4 rounded focus:outline-none"
+                (click)="logout()">Cerrar sesión</button>
+            <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+        </div>

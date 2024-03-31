@@ -1,0 +1,282 @@
+/* Estilos para el panel lateral */
+.sidebar {
+    width: 300px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #f0f0f0b0;
+    padding: 40px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #03A821;
+    font-weight: semi-bold;
+}
+
+/* Estilos para el contenido principal */
+.main-content {
+    position: fixed;
+    left: 40%;
+    /* Ajusta este valor si el ancho del sidebar cambia */
+    width: 45%;
+    max-width: 700px;
+    top: 160px;
+    line-height: 1, 6;
+    overflow-y: auto;
+    max-height: 750px;
+}
+
+/* Estilos para alinear el h1 a la derecha dentro del contenido principal */
+.main-content h1 {
+    text-align: left;
+}
+
+.main-content::-webkit-scrollbar {
+    width: 12px; /* Ancho del scrollbar */
+}
+
+/* Estilo del track (rastro) del scrollbar */
+.main-content::-webkit-scrollbar-track {
+    background: #e2e2e2; /* Color de fondo del track */
+    border-radius: 10px;  /* Bordes redondeados */
+}
+
+/* Estilo del thumb (control deslizante) del scrollbar */
+.main-content::-webkit-scrollbar-thumb {
+    background: #c5c5c5; /* Color de fondo del thumb */
+    border-radius: 10px;  /* Bordes redondeados */
+}
+
+/* Cambia el color del thumb al pasar el mouse */
+.main-content::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color de fondo del thumb al pasar el mouse */
+}
+
+.libreta {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translate(-40%);
+    width: 90%;  /* Ancho relativo al ancho del viewport */
+    max-width: 1200px; /* Máximo ancho para evitar que la imagen sea demasiado grande */
+    height: auto; /* Mantiene la proporción de aspecto */
+    z-index: -1;
+}
+
+@media screen and (max-width: 900px) {
+    .libreta {
+        display: none;
+    }
+}
+
+.main-content::-webkit-scrollbar {
+    width: 12px; /* Ancho del scrollbar */
+}
+
+/* Estilo del track (rastro) del scrollbar */
+.main-content::-webkit-scrollbar-track {
+    background: #e2e2e2; /* Color de fondo del track */
+    border-radius: 10px;  /* Bordes redondeados */
+}
+
+/* Estilo del thumb (control deslizante) del scrollbar */
+.main-content::-webkit-scrollbar-thumb {
+    background: #c5c5c5; /* Color de fondo del thumb */
+    border-radius: 10px;  /* Bordes redondeados */
+}
+
+/* Cambia el color del thumb al pasar el mouse */
+.main-content::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color de fondo del thumb al pasar el mouse */
+}
+
+.libreta {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translate(-40%);
+    width: 90%;  /* Ancho relativo al ancho del viewport */
+    max-width: 1200px; /* Máximo ancho para evitar que la imagen sea demasiado grande */
+    height: auto; /* Mantiene la proporción de aspecto */
+    z-index: -1;
+}
+
+@media screen and (max-width: 900px) {
+    .libreta {
+        display: none;
+    }
+}
+
+h2{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-family:'Lemon Milk Bold', sans-serif;
+}
+
+.letras {
+    font-family: 'Montserrat Light', sans-serif;
+}
+
+@font-face {
+    font-family: 'Montserrat Light';
+    src: url('Montserrat-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'LEMON MILK Bold';
+    src: url('LEMONMILK-Bold.otf') format('opentype');
+  }
+
+.button1 {
+    --i: var(--light, 0);
+    --not-i: calc(1 - var(--i));
+    --j: var(--press, 0);
+    --not-j: calc(1 - var(--j));
+    z-index: var(--i);
+    border: none;
+    width: 2em;
+    height: 2em;
+    border-radius: 15%;
+    transform: scale(calc(0.6 - var(--j) * .02));
+    box-shadow: inset calc(var(--j) * 0.25em) calc(var(--j) * 0.25em) 0.25em rgba(210, 218, 230, var(--j)),
+        inset calc(var(--j) * -0.25em) calc(var(--j) * -0.25em) 0.25em rgba(252, 252, 252, var(--j));
+
+    background: #ffffff;
+    font-size: 3em;
+    transition: box-shadow 0.3s, transform 0.3s cubic-bezier(0.2, 4, 1, 3);
+    cursor: pointer;
+}
+
+#homepage {
+    position: fixed;
+    /* Posición fija en la pantalla */
+    right: 150px;
+  }
+  
+  #miperfil {
+    position: fixed;
+    right: 10px;
+  }
+  
+  #darkMode {
+    position: fixed;
+    right: 220px;
+  }
+  
+  #lightMode {
+    position: fixed;
+    right: 220px;
+  }
+  
+  #misrecetas {
+    position: fixed;
+    right: 80px;
+  }
+
+#add {
+    position: relative;
+    top: 16px;
+}
+
+button::after {
+    filter: Contrast(0) Sepia(var(--i)) Hue-Rotate(calc(var(--hue) - 50deg)) Saturate(5) Opacity(calc(var(--i) + .21 * var(--not-i))) Drop-Shadow(1px 1px hsla(0, 0%, 100%, var(--not-i)));
+    transition: filter 0.3s;
+    content: attr(data-ico);
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover,
+button:focus {
+    --light: 1;
+}
+
+button:active {
+    --press: 1;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-right: 30px; 
+}
+
+span {
+    cursor: pointer;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #89C991;
+    z-index: -1;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.animated-image {
+    position: absolute;
+    bottom: -100%;
+    left: var(--x-position);
+    transform: translateX(-50%) rotate(var(--start-rotation)) scale(0.5);
+    animation: slideUpAndScale var(--duration) linear infinite var(--delay);
+}
+
+@keyframes slideUpAndScale {
+    0% {
+        bottom: -70%;
+        transform: translateX(-50%) rotate(var(--start-rotation)) scale(0.5);
+    }
+
+    100% {
+        bottom: 100%;
+        transform: translateX(-50%) rotate(calc(var(--start-rotation) + var(--rotation-direction) * 800deg)) scale(0.5);
+    }
+}
+
+.delete-button{
+    position:absolute;
+    top: 0;
+    right: 10px;
+    color:red;
+    font-weight:bold;
+}
+
+#darkModeToggle {
+    position: fixed;
+    right: 220px;
+}
+
+.dark-mode-bg {
+    background-color: #333;
+}
+
+.dark-mode-color {
+    color: #fffd74;
+}

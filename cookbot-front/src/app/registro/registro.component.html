@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<div class="background-container">
+    <div class="image-container">
+        <img src="assets/citrico2.png" class="animated-image"
+            style="--delay: 0s; --x-position: 60%; --start-rotation: 0deg; --duration: 16s; --rotation-direction: -1;">
+        <img src="assets/citrico1.png" class="animated-image"
+            style="--delay: 10s; --x-position: 49%; --start-rotation: 10deg; --duration: 14s; --rotation-direction: 1;">
+        <img src="assets/citrico3.png" class="animated-image"
+            style="--delay: 3s; --x-position: 90%; --start-rotation: 240deg; --duration: 24s; --rotation-direction: 1;">
+        <img src="assets/citrico4.png" class="animated-image"
+            style="--delay: 5s; --x-position: 77%; --start-rotation: 0deg; --duration: 30s; --rotation-direction: -1;">
+        <img src="assets/citrico5.png" class="animated-image"
+            style="--delay: 2s; --x-position: 32%; --start-rotation: 180deg; --duration: 18s; --rotation-direction: 1;">
+        <img src="assets/citrico6.png" class="animated-image"
+            style="--delay: 13s; --x-position: 9%; --start-rotation: 400deg; --duration: 17s; --rotation-direction: -1;">
+        <img src="assets/citrico1.png" class="animated-image"
+            style="--delay: 0s; --x-position: 15%; --start-rotation: 0deg; --duration: 19s; --rotation-direction: 1;">
+        <img src="assets/citrico6.png" class="animated-image"
+            style="--delay: 12s; --x-position: 44%; --start-rotation: 13deg; --duration: 25s; --rotation-direction: -1;">
+        <img src="assets/citrico3.png" class="animated-image"
+            style="--delay: 3s; --x-position: 72%; --start-rotation: 140deg; --duration: 14s; --rotation-direction: 1;">
+        <img src="assets/citrico4.png" class="animated-image"
+            style="--delay: 2s; --x-position: 36%; --start-rotation: 180deg; --duration: 13s; --rotation-direction: 1;">
+        <img src="assets/citrico5.png" class="animated-image"
+            style="--delay: 13s; --x-position: 28%; --start-rotation: 400deg; --duration: 32s; --rotation-direction: -1;">
+        <img src="assets/citrico2.png" class="animated-image"
+            style="--delay: 6s; --x-position: 12%; --start-rotation: 0deg; --duration: 20s; --rotation-direction: 1;">
+        <img src="assets/citrico2.png" class="animated-image"
+            style="--delay: 12s; --x-position: 88%; --start-rotation: 13deg; --duration: 15s; --rotation-direction: -1;">
+        <img src="assets/citrico3.png" class="animated-image"
+            style="--delay: 5s; --x-position: 52%; --start-rotation: 170deg; --duration: 21s; --rotation-direction: -1;">
+        <img src="assets/citrico4.png" class="animated-image"
+            style="--delay: 4s; --x-position: 21%; --start-rotation: 120deg; --duration: 17s; --rotation-direction: -1;">
+    </div>
+</div>
+
+<div class="h-screen ">
+    <div class="flex justify-center h-screen">
+    <div class="bg-md-transparent mt-auto mb-auto p-8 max-w-md w-full border-solid border-4 border-yellow-400 rounded-2xl">
+        <h1 class="titulo mb-8 text-3xl font-semibold text-center">COOKBOT</h1>
+        <h2 class="subtitulo mb-6 text-2xl font-semibold text-center">Crear un nuevo usuario</h2>
+
+
+        <form (ngSubmit)="onSubmit()">
+            <div class="letras mb-6">
+                <input type="name" [formControl]="user" id="user" name="user"
+                    class="bg-white placeholder-yellow-400 border rounded px-3 py-2 w-full focus:outline-none focus:border-yellow-400"
+                    placeholder="Nombre de usuario">
+            </div>
+            <div class="letras mb-6">
+                <input type="password" [formControl]="password" id="password" name="password"
+                    class="bg-white placeholder-yellow-400 border rounded px-3 py-2 w-full focus:outline-none focus:border-yellow-400"
+                    placeholder="Contraseña">
+            </div>
+            <div class="letras mb-12">
+                <input type="password" [formControl]="password_auth" id="password-again" name="password-again"
+                    class="bg-white placeholder-yellow-400 border rounded px-3 py-2 w-full focus:outline-none focus:border-yello-400"
+                    placeholder="Repite la contraseña">
+            </div>
+            <div *ngIf="errorMessage" class="letras text-yellow-400 mb-4">{{ errorMessage }}</div>
+            <div class="letras mb-6">
+                <button type="submit"
+                    
+                    class="bg-yellow-400 w-full text-white py-2 px-4 rounded hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400">Registrarse</button>
+            </div>
+            <div class="letras text-center text-yellow-400">
+                <a href="/login">Inicia sesión si ya tienes cuenta</a>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+
+</html>

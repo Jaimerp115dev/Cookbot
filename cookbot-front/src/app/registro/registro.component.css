@@ -1,0 +1,135 @@
+.button1 {
+    --i: var(--light, 0);
+    --not-i: calc(1 - var(--i));
+    --j: var(--press, 0);
+    --not-j: calc(1 - var(--j));
+    z-index: var(--i);
+    border: none;
+    width: 2em;
+    height: 2em;
+    border-radius: 15%;
+    transform: scale(calc(0.6 - var(--j) * .02));
+    box-shadow: calc(var(--not-j) * -0.25em) calc(var(--not-j) * -0.25em) 0.25em rgba(252, 252, 252, var(--not-j)), calc(var(--not-j) * 0.25em) calc(var(--not-j) * 0.25em) 0.25em rgba(210, 218, 230, var(--not-j)), inset calc(var(--j) * 0.25em) calc(var(--j) * 0.25em) 0.25em rgba(210, 218, 230, var(--j)), inset calc(var(--j) * -0.25em) calc(var(--j) * -0.25em) 0.25em rgba(252, 252, 252, var(--j));
+    background: #f0f0f0;
+    font-size: 3em;
+    transition: box-shadow 0.3s, transform 0.3s cubic-bezier(0.2, 4, 1, 3);
+    cursor: pointer;
+}
+
+#homepage {
+    position: fixed;
+    /* Posición fija en la pantalla */
+    right: 10px;
+}
+
+#lightMode {
+    position: fixed;
+    /* Posición fija en la pantalla */
+    right: 90px;
+}
+
+#darkMode {
+    position: fixed;
+    /* Posición fija en la pantalla */
+    right: 90px;
+}
+
+button::after {
+    filter: Contrast(0) Sepia(var(--i)) Hue-Rotate(calc(var(--hue) - 50deg)) Saturate(5) Opacity(calc(var(--i) + .21 * var(--not-i))) Drop-Shadow(1px 1px hsla(0, 0%, 100%, var(--not-i)));
+    transition: filter 0.3s;
+    content: attr(data-ico);
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover,
+button:focus {
+    --light: 1;
+}
+
+button:active {
+    --press: 1;
+}
+
+.titulo {
+    font-family: 'LEMON MILK Bold', sans-serif;
+    color: #FCD34D;
+}
+
+.subtitulo {
+    font-family: 'Montserrat Light', sans-serif;
+    color: #FCD34D;
+}
+
+.letras {
+    font-family: 'Montserrat Light', sans-serif;
+}
+
+@font-face {
+    font-family: 'Montserrat Light';
+    src: url('Montserrat-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'LEMON MILK Bold';
+    src: url('LEMONMILK-Bold.otf') format('opentype');
+}
+
+.background-container {
+    position: fixed;
+    /* O puedes usar 'absolute' si prefieres */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #FFEC99;
+    /* Tu color de fondo pastel */
+    z-index: -1;
+    /* Asegura que el fondo esté detrás del contenido */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.animated-image {
+    position: absolute;
+    bottom: -100%;
+    left: var(--x-position);
+    transform: translateX(-50%) rotate(var(--start-rotation)) scale(0.4);
+    animation: slideUpAndScale var(--duration) linear infinite var(--delay);
+}
+
+@keyframes slideUpAndScale {
+    0% {
+        bottom: -50%;
+        transform: translateX(-50%) rotate(var(--start-rotation)) scale(0.4);
+    }
+
+    100% {
+        bottom: 100%;
+        transform: translateX(-50%) rotate(calc(var(--start-rotation) + var(--rotation-direction) * 800deg)) scale(0.4);
+    }
+}
+
+.bg-md-transparent {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#darkModeToggle {
+    position: fixed;
+    right: 220px;
+}
+
+.dark-mode-bg {
+    background-color: #333;
+}
+
+.dark-mode-color {
+    color: #fffd74;
+}
